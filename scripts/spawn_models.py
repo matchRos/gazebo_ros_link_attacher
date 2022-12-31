@@ -113,7 +113,7 @@ if __name__ == '__main__':
     # Spawn object 1
     rospy.loginfo("Spawning cube1")
     req1 = create_cube_request("cube1",
-                              0.0, 0.0, 1.53,  # position
+                              0.0, 0.0, 1.40,  # position
                               0.0, 0.0, 0.0,  # rotation
                               1.7, 1.1, 0.1)  # size
     spawn_srv.call(req1)
