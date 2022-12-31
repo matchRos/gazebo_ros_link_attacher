@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 from gazebo_ros_link_attacher.srv import Attach, AttachRequest, AttachResponse
@@ -17,8 +17,8 @@ if __name__ == '__main__':
     req = AttachRequest()
     req.model_name_1 = "cube1"
     req.link_name_1 = "link"
-    req.model_name_2 = "cube2"
-    req.link_name_2 = "link"
+    req.model_name_2 = "mur1"
+    req.link_name_2 = "UR10_r/wrist_3_link"
 
     attach_srv.call(req)
     # From the shell:
@@ -31,18 +31,27 @@ link_name_2: 'link'"
 
     rospy.loginfo("Attaching cube2 and cube3")
     req = AttachRequest()
-    req.model_name_1 = "cube2"
+    req.model_name_1 = "cube1"
     req.link_name_1 = "link"
-    req.model_name_2 = "cube3"
-    req.link_name_2 = "link"
+    req.model_name_2 = "mur1"
+    req.link_name_2 = "UR10_l/wrist_3_link"
 
     attach_srv.call(req)
 
     rospy.loginfo("Attaching cube3 and cube1")
     req = AttachRequest()
-    req.model_name_1 = "cube3"
+    req.model_name_1 = "cube1"
     req.link_name_1 = "link"
-    req.model_name_2 = "cube1"
-    req.link_name_2 = "link"
+    req.model_name_2 = "mur2"
+    req.link_name_2 = "UR10_l/wrist_3_link"
+
+    attach_srv.call(req)
+
+    rospy.loginfo("Attaching cube3 and cube1")
+    req = AttachRequest()
+    req.model_name_1 = "cube1"
+    req.link_name_1 = "link"
+    req.model_name_2 = "mur2"
+    req.link_name_2 = "UR10_r/wrist_3_link"
 
     attach_srv.call(req)
